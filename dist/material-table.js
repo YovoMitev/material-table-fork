@@ -202,6 +202,10 @@ function (_React$Component) {
           isLoading: true
         }, function () {
           _this.props.editable.onRowAdd(newData).then(function (result) {
+            if (!result) return _this.setState({
+              isLoading: false
+            });
+
             _this.setState({
               isLoading: false,
               showAddRow: false
@@ -221,6 +225,10 @@ function (_React$Component) {
           isLoading: true
         }, function () {
           _this.props.editable.onRowUpdate(newData, oldData).then(function (result) {
+            if (!result) return _this.setState({
+              isLoading: false
+            });
+
             _this.dataManager.changeRowEditing(oldData);
 
             _this.setState((0, _objectSpread2["default"])({
