@@ -12,6 +12,15 @@ https://material-table.com/#/
                       render: data => <div>Fuck</div>
                     }
                   ]}
+                  editable={{
+                    // isDeletable: false,
+                    disableCreateButton: true,
+                    disableCancelButton: false,
+                    // onRowAdd: () => console.log('ADD'),
+                    onRowCancel: () => console.log('CANCEL'),
+                    // onRowUpdate: () => console.log('ADD'),
+                    // onRowDelete:() => console.log('ADD'),
+                  }}
                 />
 ```
 

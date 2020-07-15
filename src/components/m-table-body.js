@@ -48,6 +48,9 @@ class MTableBody extends React.Component {
           <this.props.components.EditRow
             columns={this.props.columns.filter(columnDef => { return !columnDef.hidden })}
             components={this.props.components}
+            disableCancelButton={this.props.editable.disableCancelButton}
+            disableCreateButton={this.props.editable.disableCreateButton}
+            onRowCancel={this.props.editable.onRowCancel}
             data={data}
             icons={this.props.icons}
             localization={{ ...MTableBody.defaultProps.localization.editRow, ...this.props.localization.editRow, dateTimePickerLocalization: this.props.localization.dateTimePickerLocalization }}
@@ -155,6 +158,9 @@ class MTableBody extends React.Component {
           <this.props.components.EditRow
             columns={this.props.columns.filter(columnDef => { return !columnDef.hidden })}
             data={this.props.initialFormData}
+            disableCancelButton={this.props.editable.disableCancelButton}
+            disableCreateButton={this.props.editable.disableCreateButton}
+            onRowCancel={this.props.editable.onRowCancel}
             components={this.props.components}
             icons={this.props.icons}
             key="key-add-row"
@@ -179,6 +185,9 @@ class MTableBody extends React.Component {
             columns={this.props.columns.filter(columnDef => { return !columnDef.hidden })}
             data={this.props.initialFormData}
             components={this.props.components}
+            disableCancelButton={this.props.editable.disableCancelButton}
+            disableCreateButton={this.props.editable.disableCreateButton}
+            onRowCancel={this.props.editable.onRowCancel}
             icons={this.props.icons}
             key="key-add-row"
             mode="add"
