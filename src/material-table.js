@@ -264,14 +264,20 @@ export default class MaterialTable extends React.Component {
         })
 
     if (calculatedProps.editable) {
-      const { disableCancelButton = false, disableCreateButton = false } = calculatedProps.editable
+      const {
+        disableCancelButton = false,
+        disableCreateButton = false
+      } = calculatedProps.editable
 
       if (calculatedProps.editable.onRowAdd) {
         calculatedProps.actions.push({
           icon: calculatedProps.icons.Add,
           tooltip: localization.addTooltip,
           position: 'toolbar',
-          disabled: ((this.state && this.state.showAddRow) && (disableCancelButton || disableCreateButton)),
+          disabled:
+            this.state &&
+            this.state.showAddRow &&
+            (disableCancelButton || disableCreateButton),
           onClick: () => {
             this.dataManager.changeRowEditing()
             this.setState({
@@ -452,6 +458,8 @@ export default class MaterialTable extends React.Component {
         this.props.editable
           .onRowAdd(newData)
           .then(result => {
+            if (!result) return this.setState({ isLoading: false })
+
             this.setState({ isLoading: false, showAddRow: false }, () => {
               if (this.isRemoteData()) {
                 this.onQueryChange(this.state.query)
