@@ -112,6 +112,15 @@ class App extends Component {
                   ]}
                   tableRef={this.tableRef}
                   columns={this.state.columns}
+                  // editable={{
+                  //   isDeletable: false,
+                  //   // disableCreateButton: true,
+                  //   // disableCancelButton: false,
+                  //   onRowAdd: () => console.log('ADD'),
+                  //   // onRowCancel: () => console.log('CANCEL'),
+                  //   onRowUpdate: () => console.log('ADD'),
+                  //   onRowDelete:() => console.log('ADD'),
+                  // }}
                   data={this.state.data}
                   title="Demo Title"
                   onRowClick={((evt, selectedRow) => this.setState({ selectedRow }))}
