@@ -141,7 +141,7 @@ function (_React$Component) {
           var EditComponent = editComponent || _this2.props.components.EditField;
           return React.createElement(_TableCell["default"], {
             key: columnDef.tableData.id,
-            align: ['numeric'].indexOf(columnDef.type) !== -1 ? "right" : "left",
+            align: ['numeric'].indexOf(columnDef.type) !== -1 ? 'right' : 'left',
             style: getCellStyle(columnDef, value)
           }, React.createElement(EditComponent, {
             key: columnDef.tableData.id,
@@ -176,6 +176,7 @@ function (_React$Component) {
       var actions = [{
         icon: this.props.icons.Check,
         tooltip: localization.saveTooltip,
+        disable: this.props.disableCreateButton,
         onClick: function onClick() {
           var newData = _this3.state.data;
           delete newData.tableData;
@@ -185,7 +186,10 @@ function (_React$Component) {
       }, {
         icon: this.props.icons.Clear,
         tooltip: localization.cancelTooltip,
+        disable: this.props.disableCancelButton,
         onClick: function onClick() {
+          _this3.props.onRowCancel && _this3.props.onRowCancel();
+
           _this3.props.onEditingCanceled(_this3.props.mode, _this3.props.data);
         }
       }];
@@ -221,14 +225,14 @@ function (_React$Component) {
       var localization = (0, _objectSpread2["default"])({}, MTableEditRow.defaultProps.localization, this.props.localization);
       var columns;
 
-      if (this.props.mode === "add" || this.props.mode === "update") {
+      if (this.props.mode === 'add' || this.props.mode === 'update') {
         columns = this.renderColumns();
       } else {
         var colSpan = this.props.columns.filter(function (columnDef) {
           return !columnDef.hidden && !(columnDef.tableData.groupOrder > -1);
         }).length;
         columns = [React.createElement(_TableCell["default"], {
-          padding: this.props.options.actionsColumnIndex === 0 ? "none" : undefined,
+          padding: this.props.options.actionsColumnIndex === 0 ? 'none' : undefined,
           key: "key-selection-cell",
           colSpan: colSpan
         }, React.createElement(_Typography["default"], {
@@ -273,7 +277,7 @@ function (_React$Component) {
 
       if (this.props.detailPanel) {
         var aligment = this.props.options.detailPanelColumnAlignment;
-        var index = aligment === "left" ? 0 : columns.length;
+        var index = aligment === 'left' ? 0 : columns.length;
         columns.splice(index, 0, React.createElement(_TableCell["default"], {
           padding: "none",
           key: "key-detail-panel-cell"
@@ -285,7 +289,7 @@ function (_React$Component) {
       }).forEach(function (columnDef) {
         columns.splice(0, 0, React.createElement(_TableCell["default"], {
           padding: "none",
-          key: "key-group-cell" + columnDef.tableData.id
+          key: 'key-group-cell' + columnDef.tableData.id
         }));
       });
       var _this$props = this.props,

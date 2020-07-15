@@ -45,10 +45,10 @@ function (_React$Component) {
         return this.props.actions.map(function (action, index) {
           return React.createElement(_this.props.components.Action, {
             action: action,
-            key: "action-" + index,
+            key: 'action-' + index,
             data: _this.props.data,
             size: _this.props.size,
-            disabled: _this.props.disabled
+            disabled: _this.props.disabled || action.disable
           });
         });
       }

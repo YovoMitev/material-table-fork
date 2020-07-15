@@ -115,6 +115,9 @@ function (_React$Component) {
               return !columnDef.hidden;
             }),
             components: _this.props.components,
+            disableCancelButton: _this.props.editable.disableCancelButton,
+            disableCreateButton: _this.props.editable.disableCreateButton,
+            onRowCancel: _this.props.editable.onRowCancel,
             data: data,
             icons: _this.props.icons,
             localization: (0, _objectSpread2["default"])({}, MTableBody.defaultProps.localization.editRow, _this.props.localization.editRow, {
@@ -227,6 +230,9 @@ function (_React$Component) {
           return !columnDef.hidden;
         }),
         data: this.props.initialFormData,
+        disableCancelButton: this.props.editable.disableCancelButton,
+        disableCreateButton: this.props.editable.disableCreateButton,
+        onRowCancel: this.props.editable.onRowCancel,
         components: this.props.components,
         icons: this.props.icons,
         key: "key-add-row",
@@ -244,6 +250,9 @@ function (_React$Component) {
         }),
         data: this.props.initialFormData,
         components: this.props.components,
+        disableCancelButton: this.props.editable.disableCancelButton,
+        disableCreateButton: this.props.editable.disableCreateButton,
+        onRowCancel: this.props.editable.onRowCancel,
         icons: this.props.icons,
         key: "key-add-row",
         mode: "add",

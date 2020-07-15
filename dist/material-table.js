@@ -425,6 +425,7 @@ function (_React$Component) {
         actions: props.actions,
         components: props.components,
         icons: props.icons,
+        editable: props.editable,
         renderData: _this.state.renderData,
         currentPage: _this.state.currentPage,
         initialFormData: props.initialFormData,
@@ -691,11 +692,18 @@ function (_React$Component) {
       });
 
       if (calculatedProps.editable) {
+        var _calculatedProps$edit = calculatedProps.editable,
+            _calculatedProps$edit2 = _calculatedProps$edit.disableCancelButton,
+            disableCancelButton = _calculatedProps$edit2 === void 0 ? false : _calculatedProps$edit2,
+            _calculatedProps$edit3 = _calculatedProps$edit.disableCreateButton,
+            disableCreateButton = _calculatedProps$edit3 === void 0 ? false : _calculatedProps$edit3;
+
         if (calculatedProps.editable.onRowAdd) {
           calculatedProps.actions.push({
             icon: calculatedProps.icons.Add,
             tooltip: localization.addTooltip,
             position: 'toolbar',
+            disabled: this.state && this.state.showAddRow && (disableCancelButton || disableCreateButton),
             onClick: function onClick() {
               _this5.dataManager.changeRowEditing();
 
